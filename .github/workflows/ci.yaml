@@ -1,0 +1,16 @@
+name: CI
+on: [push]
+jobs:
+  run-tests: #this is a job ID
+    name: Lint and Test
+    runs-on: ubuntu-latest #when using github actions, it will create a vm; u can choose what OS to run on
+
+    steps: #
+      - name: Checkout code #name the task
+        uses: actions/checkout@v4 #what does it do
+
+      - name: Install packages 
+        run: npm ci
+
+      - name: Run ESlint #i changed this to test git push
+        run: npm run lint
